@@ -1,0 +1,135 @@
+= Modelo de cajas.
+
+El modelo de cajas es la caracteristica más importante
+de CSS puesto que cada elemento dentro de un documento HTML
+es o se encuentra dentro de una caja rectangular.
+Cuando se trabaja con el modelo de caja siempre se tiene que tener en cuenta
+las propuedades height y width que representan la altura y el ancho de la caja respectivamente.
+
+Al trabajr con el modelo de cajas también contamos con las propiedades *Content*, *Padding*, *Border*, *Margin* y *Outline*.
+
+*Content* no es más que el texto o las imagenes que se van a mostrar.
+
+*Padding* es una propiedad de relleno que define el espacio entre el elemento de borde y el elemento de contenido.
+
+*Border* permite especificar el estilo y color del borde del elemento.
+
+*Margin* define el espacio alrededor de elementos. No tiene color de fondo y es totalmente transparente.
+
+A diferencia del border, el *outline* es un contorno que se dibuja por encima del elemento y no ocupa espacio.
+No aumenta el tamaño de la caja y no hay movimiento de los otros elementos como con border.
+
+= Propiedades.
+- Display
+* Block. Hace que el elemento se muestre en una nueva linea ocupando todo el espacio posible provocando que el siguiente
+elemento comience en el siguiente espacio donde terminó este mismo
+* Inline. Un elemento con esta propiedad solo ocupa el espacio que su contenido necesite. A estos elementos no es posible
+asignarle propiedades width o height
+* Inline-Block. Es una combinacion de Block e Inline, el elemento con esta propiedad fluirá con el texto y los otros elementos.
+* None. Oculta el elemento, es decir, que el elemento existe pero no es visible.
+- Box-Sizing.
+* Border-box. Le dice al navegador que si se especifica un valor para el ancho o alto de un elemento y después se agrega algún tipo de
+borde o relleno, el tamaño de esas propiedades se restará al tamaño inical de dicho elemento.
+* Content-box. Esta propiedad es lo contrario a border-box pues aquí si se añade el valor de alguna propiedad como el borde o el relleno
+al valor inicial del elemento.
+
+= Flujo del documento.
+Es la forma en la que se van colocando los elementos de una página, en base a la declaración en HTML y sus respectivos atributos CSS.
+El navegador, en el momento que interpreta el código HTML de la página, va colocando en la página los elementos según los va encontrando en el mismo código.
+
+= Tipos de posicionamiento.
+- Static. Es el valor que tienen por defecto los elementos dentro de un documento HTML. Los elementos con esta propiedad se colocan según el flujo del documento.
+- Absolute. Los elementos con esta propiedad no se posicionan conforme el flujo del documento, quedan fuera, y no afectan a otros elementos que si son
+parte del flujo.
+- Relative. Estos elementos si forman parte del flujo, pueden ser movidos a otras posiciones con las propiedades Top y left pero su espacio en el flujo se respetará
+haciendo que los demas elementos continúen el flujo a partir del punto donde termina este elemento.
+- Sticky. Es una mezcla de relative y fixed puesto que forma parte del flujo pero al llegar a una determinada posicion en pantalla (en concreto cuando el elemento
+  llega al borde del navegador haciendo scroll) éste se quedará fijo en esa posición.
+- Fixed. Con esta propiedad se puede posicionar un elemento de manera absoluta con la diferencia que permanecerá estática en pantalla.
+
+= Unidades de medida.
+- Absolutas.
+* in (pulgadas).
+* cm (centímetros).
+* pc (picas).
+* mm (milímetros).
+* pt (puntos).
+* Q (cuarto de mm).
+- Relativas.
+* em "M". Esta unidad es relativa al tamaño de letra que se está utilizando. Cuando se utiliza esta unidad es imprecindible conocer el valor de referencia.
+* px (píxeles). Esta unidad también suele considerarse absoluta, puesto que hace referencia al tamaño de los píxeles de la pantalla.
+* rem "root M". Funciona igual que el em pero con la diferencia que esta es relativa al valir de la fuente raíz.
+* % "porcentaje". Es una de las unidades más utilizadas. Su siempre se calcula en base a otro elemento. Si se aplica sobre una fuente es relativo al tamaño de la fuente
+del contexto. Y si se utiliza para modificar la dimensión de algún elemento, es relativa al tamaño del contenedor.
+
+= Selectores básicos.
+- Tag. Estos selectores permiten apuntar a un grupo de elementos específicos iguales dentro de un documento HTML.
+- ID. El ID es un atributo que pueden tener todos los elementos HTML, dicho atributo deberá tener un valor asignado pues este valor será el nombre que se le dará a esa etiqueta.
+- Clase. Las clases en HTML funcionan de manera similar al ID pero éstas son más flexibles puesto que no necesariamente deben ser únicas, sino que pueden repetirse a lo largo del documento HTML.
+
+= Selectores basados en relación.
+- Espacio ó Descendente. Se utiliza para seleccionar uno o más elementos que se encuentran dentro de otro elemento específico.
+- Hijo directo (>). Este selector se comporta de forma similar al selector Descendente con la diferencia que éste solo selecciona al primer elemento que se hijo directo de otro elemento específico.
+- Hermano adyacente (+). Este selecciona a los elementos HTML que se encuenten declarados justo despues de otro elemento específico y que tengan el mismo padre en común.
+- Hermano general (~). Este funciona de manera similar al de hermano adyacente pero aquí se aplican los estilos a todos los hermanos de un elemento que comparten el mismo padre.
+
+= Pseudoselectores.
+### Pseudoclases.
+Es una palabra clave utilizada para hacer referencia al estado del elemento seleccionado.
+
+*Ejemplos.*
+
+- :first-child
+- :first-of-type
+- :only-child
+- :hover
+
+### Pseudoelementos.
+a diferencia de las pseudoclases, los pseudoelementos permiten agregar estilos a una parte concreta del documento HTML.
+
+*Ejemplos.*
+
+- ::after
+- ::before
+- ::first-letter
+- ::first-line
+
+= La cascada.
+
+Es una de las partes más importantes del CSS. Cada vez que se ecribe una regla CSS, esta entra en la cascada, la cual determinará si se aplica o no como un estilo.
+
+- Importancia.
+Es el primer nivel de la cascada, aquí se encuentran las reglas más importantes de CSS y dentro de estas reglas existe una jerarquía  de importancia.
+* Transición.
+Las reglas que se aplican a las transiciones son las que tienen mayor importancia.
+* !important. Cuando se agrega al final de una regla, se ignoran las demás declaradas y se ejecuta instantaneamente esta.
+* Animación. Las reglas aplicadas a una animación saltan hasta este nivel de la cascada.
+* Normal. Aquí se encuentran la mayoría de las reglas.
+- Origen
+Es el segundo nivel de la cascada y existen 3 subniveles donde se pueden encontrar las sigueintes reglas.
+* Sitio web. Es el unico nivel sobre el cual se tiene control como desarrollador web.
+* Usuario.
+* Navegador. Tiene sus propios estilos.
+- Especificidad.
+Es el tercer nivel de la cascada y aquí se debe ser lo más especifico posible para aplicar estilos a un elemento.
+* Inline. Los estilos declarados dentro de una etiqueta styles son los más especificos.
+* ID. Hace referencia a un elemento único dentro del documento HTML.
+* Clase, atributo, pseudoclase. Podemos seleccionar un elemento basandonos en estas propiedades.
+* Tipo. Se pueden seleccionar elementos basandose en su tipo de etiqueta, aquí también se incluyen los pseudoelementos.
+- Posición.
+Por último, cuando se encuentran dos elementos que tiene el mismo nivel de importancia la cascada indica que se aplicaran los estilos del último elemento declarado.
+
+# Especificidad
+
+Determina cual regla de estilo es aplicada por el navegador, las reglas que tengan selectores más especificos tendrán una mayor especificidad. Si dos selectores se aplican al mismo elemento,
+la que que tenga mayor especificidad será aplicada.
+
+[cols= "1,2,1"]
+|===
+Jerarquía|Selector|Especificidad|
+4 | Etiqueta HTML|1000 puntos.|
+3 | ID | 100 puntos.|
+2 | Clase, pseudoclase, atributo.| 10 puntos.|
+1 | Elemento, pseudoelementos. | 1 puntos.|
+0 | Selector universal * | 0 puntos. |
+|===
